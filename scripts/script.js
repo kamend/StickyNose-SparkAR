@@ -11,7 +11,7 @@ const face = FaceTracking.face(0);
     const cam = await Scene.root.findFirst("Camera");
     
     const focalPlane = cam.focalPlane;
-    const camCoords = face.cameraTransform.applyTo(face.nose.tip);
+    const camCoords = face.cameraTransform.applyToPoint(face.nose.tip);
 
     const u = R.add(R.div(R.div(camCoords.x, R.div(focalPlane.width, 2)), 2), 0.5);
     const v = R.add(R.div(R.div(camCoords.y, R.div(focalPlane.height, 2)), 2), 0.5);
